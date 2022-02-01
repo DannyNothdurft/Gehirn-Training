@@ -60,3 +60,16 @@ table tr td {
     border: 1px solid red;
     border-radius: 10px;
 }
+
+#reset {
+    position: absolute;
+    bottom: 239px;
+    left: calc(50% - 140px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid red;
+    border-radius: 10px;
+    width: 55px;
+    height: 30px;
+}
