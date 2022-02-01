@@ -7,14 +7,14 @@
 table {
     position: absolute;
     bottom: 15px;
-    left: calc(50% - 172px);
+    left: calc(50% - 118px);
 }
 
 table tr td {
-    width: 110px;
+    width: 100px;
     height: 50px;
     font-size: 1.3rem;
     text-align: center;
     border: 1px solid red;
     border-radius: 10px;
-}
+}affectionate-wiles-82063f
