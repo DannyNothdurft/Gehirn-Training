@@ -4,6 +4,48 @@
     font-family: sans-serif;
 }
 
+section {
+    display: flex;
+    justify-content: space-around;
+    margin: 10px;
+}
+
+body > div:nth-child(2) {
+    padding: 10px;
+    position:absolute;
+    right: calc(50% - 150px);
+    top: 100px;
+    text-align: center;
+    width: 280px;
+    font-size: 1.3rem;
+    border: 1px solid red;
+}
+
+body > div:nth-child(3) {
+    position:absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    right: 9px;
+    top: 50px;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    border: 1px solid red;
+}
+
+body > div:nth-child(4) {
+    padding: 10px;
+    position:absolute;
+    right: calc(50% - 150px);
+    bottom: 230px;
+    text-align: center;
+    width: 280px;
+    min-height: 27px;
+    font-size: 1.3rem;
+    border: 1px solid red;
+}
+
 table {
     position: absolute;
     bottom: 5px;
@@ -17,4 +59,4 @@ table tr td {
     text-align: center;
     border: 1px solid red;
     border-radius: 10px;
-}affectionate-wiles-82063f
+}
