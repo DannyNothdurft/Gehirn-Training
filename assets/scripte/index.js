@@ -116,9 +116,9 @@ function timerStart(){
 };
 
 // Zufallzahl generieren und ausgeben
-function randomLv1() {
-    const random1 = Math.round(Math.random() * 10 + 0.5),
-          random2 = Math.round(Math.random() * 10 + 0.5),
+function random() {
+    const random1 = Math.round(Math.random() + ep * 10 + 0.5),
+          random2 = Math.round(Math.random() + ep * 10 + 0.5),
           operator = ['+', '-'],
           random3 = Math.floor(Math.random() * operator.length);
 
@@ -137,7 +137,7 @@ function randomLv1() {
 
 // Neue Runde wird generiert Ohne Minus Zahlen
 function newRound() {
-   randomLv1();
+   random();
 }
 
 // Ergebnis eingeben und zwischen speichern
@@ -163,7 +163,7 @@ function meinErgebnis() {
         timerPause();
         levelUp();
         setTimeout( timerStart, 1000 );
-        setTimeout( randomLv1, 2000 );
+        setTimeout( random, 2000 );
 }
 
 enter.addEventListener('click', meinErgebnis);
@@ -174,7 +174,7 @@ function gameStart(e) {
     start.classList.add('dialog');
     overlay.classList.remove('body-overlay');
     isPaused = false;
-    randomLv1();
+    random();
 }
 
 start.addEventListener('click', gameStart);
@@ -228,27 +228,27 @@ function anzeigeBar(){
 // Level Steigerung
 
 function levelUp() {
-    if ( ep > 1000) {
+    if ( ep >= 1000) {
         lv = 6;
         localStorage.setItem('Level', lv);
         anzeigeBar();
-    } else if ( ep > 500) {
+    } else if ( ep >= 500) {
         lv = 5;
         localStorage.setItem('Level', lv);
         anzeigeBar();
-    } else if ( ep > 200) {
+    } else if ( ep >= 200) {
         lv = 4;
         localStorage.setItem('Level', lv);
         anzeigeBar();
-    } else if ( ep > 100) {
+    } else if ( ep >= 100) {
         lv = 3;
         localStorage.setItem('Level', lv);
         anzeigeBar();
-    } else if ( ep > 50) {
+    } else if ( ep >= 50) {
         lv = 2;
         localStorage.setItem('Level', lv);
         anzeigeBar();
-    }  else if ( ep > 10) {
+    }  else if ( ep >= 10) {
         lv = 1;
         localStorage.setItem('Level', lv);
         anzeigeBar();
