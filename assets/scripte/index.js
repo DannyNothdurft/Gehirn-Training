@@ -228,23 +228,59 @@ function anzeigeBar(){
 // Level Steigerung
 
 function levelUp() {
-    if ( ep >= 1000) {
-        lv = 6;
+    if ( ep >= 10000) {
+        lv = 15;
+        localStorage.setItem('Level', lv);
+        anzeigeBar();
+    } else if ( ep >= 9000) {
+        lv = 14;
+        localStorage.setItem('Level', lv);
+        anzeigeBar();
+    } else if ( ep >= 8000) {
+        lv = 13;
+        localStorage.setItem('Level', lv);
+        anzeigeBar();
+    } else if ( ep >= 7000) {
+        lv = 12;
+        localStorage.setItem('Level', lv);
+        anzeigeBar();
+    } else if ( ep >= 5000) {
+        lv = 11;
+        localStorage.setItem('Level', lv);
+        anzeigeBar();
+    } else if ( ep >= 4000) {
+        lv = 10;
+        localStorage.setItem('Level', lv);
+        anzeigeBar();
+    } else if ( ep >= 3000) {
+        lv = 9;
+        localStorage.setItem('Level', lv);
+        anzeigeBar();
+    } else if ( ep >= 2000) {
+        lv = 8;
+        localStorage.setItem('Level', lv);
+        anzeigeBar();
+    } else if ( ep >= 1000) {
+        lv = 7;
         localStorage.setItem('Level', lv);
         anzeigeBar();
     } else if ( ep >= 500) {
+        lv = 6;
+        localStorage.setItem('Level', lv);
+        anzeigeBar();
+    } else if ( ep >= 250) {
         lv = 5;
         localStorage.setItem('Level', lv);
         anzeigeBar();
-    } else if ( ep >= 200) {
+    } else if ( ep >= 100) {
         lv = 4;
         localStorage.setItem('Level', lv);
         anzeigeBar();
-    } else if ( ep >= 100) {
+    } else if ( ep >= 50) {
         lv = 3;
         localStorage.setItem('Level', lv);
         anzeigeBar();
-    } else if ( ep >= 50) {
+    } else if ( ep >= 25) {
         lv = 2;
         localStorage.setItem('Level', lv);
         anzeigeBar();
