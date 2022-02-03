@@ -10,7 +10,8 @@ const number1 = document.getElementById('number1'),
       number0 = document.getElementById('number0'),
       overlay = document.getElementById('overlay'),
       anzeige = document.getElementById('anzeige'),
-      aufgabe = document.getElementById('aufgabe'),
+      aufgabe = document.getElementById('aufgabe');
+const warten = document.getElementById('warten'),
       timer = document.getElementById('timer'),
       start = document.getElementById('start'),
       reset = document.getElementById('reset'),
@@ -25,13 +26,35 @@ let isPaused = true,
     time = 10,
     ep = 0,
     lv = 0,
-    lp = 10;
+    lp = 2;
+
+// Hier steht der Code für den lp auffüllen am nächsten Tag
+const tag = new Date().getDay();
+let tagSpeicher = "";
+
+function setzeTag() {
+    if ( lp === 0 ) {
+        tagSpeicher = tag;
+    }
+}
+
+let tagVergleich = setInterval(() => {
+    if( tag != tagSpeicher && tagSpeicher != "" ) {
+        console.log(lp)
+        console.log(tagSpeicher)
+        tagSpeicher = "";
+        console.log(tagSpeicher)
+        lp = 10;
+        console.log(lp);
+    }
+}, 1000);
+
+// endet hier
 
 let timerGo = setInterval(() => {
     if(!isPaused && time >= 0) {
         timer.innerHTML = parseInt(time % 60, 10);
         time--;
-        console.log(time);
     } else {
         timerPause();
     };
@@ -44,9 +67,13 @@ function timerPause() {
         aufgabe.innerHTML = 'Zeit ist um!';
         time = 10;
         lpMinus();
-        start.classList.remove('dialog');
+        if ( lp != 0 ) {
+            start.classList.remove('dialog');
+        } else if ( lp == 0 ) {
+            warten.classList.add('aufruf');
+        }
         overlay.classList.add('body-overlay');
-    }
+    };
 };
 
 function timerStart(){
@@ -65,6 +92,10 @@ function anzeigeBar(){
     epBar.innerHTML = ep;
     lvBar.innerHTML = lv;
     lpBar.innerHTML = lp;
+
+    if ( lp === 0 ) {
+        setzeTag();
+    }
 };
 
 // Zufallzahl generieren und ausgeben
@@ -166,3 +197,6 @@ minus.addEventListener('click', (event) => {
 reset.addEventListener('click', (event) => {
     anzeige.innerHTML = "";
 });
+
+// test
+console.log(tagSpeicher);
