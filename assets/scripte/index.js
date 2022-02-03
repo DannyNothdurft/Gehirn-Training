@@ -232,36 +232,29 @@ function levelUp() {
         lv = 6;
         localStorage.setItem('Level', lv);
         anzeigeBar();
-        break;
     } else if ( ep > 500) {
         lv = 5;
         localStorage.setItem('Level', lv);
         anzeigeBar();
-        break;
     } else if ( ep > 200) {
         lv = 4;
         localStorage.setItem('Level', lv);
         anzeigeBar();
-        break;
     } else if ( ep > 100) {
         lv = 3;
         localStorage.setItem('Level', lv);
         anzeigeBar();
-        break;
     } else if ( ep > 50) {
         lv = 2;
         localStorage.setItem('Level', lv);
         anzeigeBar();
-        break;
     }  else if ( ep > 10) {
         lv = 1;
         localStorage.setItem('Level', lv);
         anzeigeBar();
-        break;
     }  else if ( ep > 0) {
         lv = 0;
         localStorage.setItem('Level', lv);
         anzeigeBar();
-        break;
     };
 };
