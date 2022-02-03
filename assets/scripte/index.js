@@ -128,13 +128,18 @@ function randomLv1() {
           random2 = Math.round(Math.random() * 10 + 0.5),
           operator = ['+', '-'],
           random3 = Math.floor(Math.random() * operator.length);
-         
-    if ( random3 === 0) {
-        aufgabe.innerHTML = `${random1} + ${random2}`;
-        return ergebnis = random1 + random2;
-    } else if ( random3 === 1 ) {
-        aufgabe.innerHTML = `${random1} - ${random2}`;
-        return ergebnis = random1 - random2;
+          summe = random1 - random2;
+
+    if ( summe >= 0 ) {
+        if ( random3 === 0) {
+            aufgabe.innerHTML = `${random1} + ${random2}`;
+            return ergebnis = random1 + random2;
+        } else if ( random3 === 1 ) {
+            aufgabe.innerHTML = `${random1} - ${random2}`;
+            return ergebnis = random1 - random2;
+        };
+    } else if (summe < 0) {
+        randomLv1();
     };
 };
 
