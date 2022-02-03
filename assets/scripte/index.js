@@ -26,7 +26,34 @@ let isPaused = true,
     time = 10,
     ep = 0,
     lv = 0,
-    lp = 2;
+    lp = 10;
+
+// Speicher
+
+let lebensPunkte = getLebensPunkte();
+
+function getLebensPunkte() {
+    let glp = localStorage.getItem('Lebenspunkte');
+    if ( glp == null || glp == undefined) {
+        lp = 10;
+    } else {
+        lp = glp;
+    }
+    return lp;
+};
+
+let erfahrungsPunkte = getErfahrungsPunkte();
+
+function getErfahrungsPunkte() {
+    let gep = localStorage.getItem('Erfahrungspunkte');
+    if ( gep == null || gep == undefined ) {
+        ep = 0;
+    } else {
+        ep = gep;
+    }
+    return ep;
+}
+
 
 // Hier steht der Code für den lp auffüllen am nächsten Tag
 const tag = new Date().getDay();
@@ -40,12 +67,9 @@ function setzeTag() {
 
 let tagVergleich = setInterval(() => {
     if( tag != tagSpeicher && tagSpeicher != "" ) {
-        console.log(lp)
-        console.log(tagSpeicher)
         tagSpeicher = "";
-        console.log(tagSpeicher)
         lp = 10;
-        console.log(lp);
+        localStorage.setItem('Lebenspunkte', lp);
     }
 }, 1000);
 
@@ -83,6 +107,7 @@ function timerStart(){
 // Lebenspunkte abzug
 function lpMinus(){
     lp--;
+    localStorage.setItem('Lebenspunkte', lp);
     anzeigeBar();
 }
 
@@ -123,10 +148,12 @@ function meinErgebnis() {
             aufgabe.innerHTML = 'Richtig';
             anzeige.innerHTML = '';
             ep++
+            localStorage.setItem('Erfahrungspunkte', ep);
         } if ( vergleich === false ) {
             aufgabe.innerHTML = `${ergebnis}`;
             anzeige.innerHTML = '';
             lp--
+            localStorage.setItem('Lebenspunkte', lp);
         }
         anzeigeBar();
         timerPause();
@@ -198,5 +225,14 @@ reset.addEventListener('click', (event) => {
     anzeige.innerHTML = "";
 });
 
-// test
-console.log(tagSpeicher);
+
+// anonyme Funktion die bei Aufruf der Seite direkt ausgeführt wird. 
+(function() {
+    // Überprüft ob die Lebenspunkte kleiner als 0 ist.
+    if ( lp <= 0 ) {
+        // Wenn kleiner als null wird der Start Button nicht angezeigt
+        start.classList.add('dialog');
+        // und wird von der Warte Anzeige ersetzt.
+        warten.classList.add('aufruf');
+    }
+})();
