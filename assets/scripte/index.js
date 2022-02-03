@@ -54,7 +54,6 @@ function getErfahrungsPunkte() {
     return ep;
 }
 
-
 // Hier steht der Code für den lp auffüllen am nächsten Tag
 const tag = new Date().getDay();
 let tagSpeicher = "";
@@ -154,6 +153,10 @@ function meinErgebnis() {
             anzeige.innerHTML = '';
             lp--
             localStorage.setItem('Lebenspunkte', lp);
+            if ( lp == 0){
+                warten.classList.add('aufruf');
+                overlay.classList.add('body-overlay');
+            }
         }
         anzeigeBar();
         timerPause();
