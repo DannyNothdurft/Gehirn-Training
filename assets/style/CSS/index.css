@@ -3,12 +3,26 @@
     padding: 0;
     font-family: sans-serif;
     touch-action: manipulation;
+    color: white;
+}
+
+body {
+    background: rgb(69,74,189);
+    background: linear-gradient(90deg, rgba(69,74,189,1) 0%, rgba(75,51,141,1) 100%); 
+}
+
+#timerGIF {
+    width: 51px;
+    position: absolute;
+    right: 2px;
+    top: 42px;
 }
 
 section {
     display: flex;
     justify-content: space-around;
     margin: 10px;
+    z-index: 100;
 }
 
 body > div:nth-child(2) {
@@ -32,7 +46,6 @@ body > div:nth-child(3) {
     width: 35px;
     height: 35px;
     border-radius: 50%;
-    border: 1px solid red;
 }
 
 body > div:nth-child(4) {
