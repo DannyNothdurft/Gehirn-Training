@@ -160,7 +160,6 @@ function meinErgebnis() {
                 overlay.classList.add('body-overlay');
             }
         }
-        anzeigeBar();
         timerPause();
         levelUp();
         setTimeout( timerStart, 1000 );
