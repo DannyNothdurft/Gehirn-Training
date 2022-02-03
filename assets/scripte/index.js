@@ -117,8 +117,8 @@ function timerStart(){
 
 // Zufallzahl generieren und ausgeben
 function random() {
-    const random1 = Math.round(Math.random() + ep * 10 + 0.5),
-          random2 = Math.round(Math.random() + ep * 10 + 0.5),
+    const random1 = Math.round(Math.random() * ep + 0.5),
+          random2 = Math.round(Math.random() * ep + 0.5),
           operator = ['+', '-'],
           random3 = Math.floor(Math.random() * operator.length);
 
