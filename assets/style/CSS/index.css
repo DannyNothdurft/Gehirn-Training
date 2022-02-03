@@ -94,15 +94,15 @@ table tr td {
     border-radius: 15px;
     border: 2px solid whitesmoke;
     z-index: 101;
-    opacity: 0;
+    display: none;
 }
 
 .aufruf {
-    opacity: 1;
+    display: block;
 }
 
 .dialog {
-    opacity: 0;
+    display: none;
 }
 
 .body-overlay {
