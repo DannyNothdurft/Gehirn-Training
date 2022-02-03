@@ -6,19 +6,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <link rel="stylesheet" href="./assets/style/CSS/index.css">
+    <script defer src="./assets/scripte/index.js" type="module"></script>
 
     <title>Gehirn Traning App</title>
 </head>
 <body>
     <section>
-        <div>EP</div>
-        <div>LV</div>
-        <div>LP</div>
+        <div>EP <span id="ep"></span></div>
+        <div>LV <span id="lv"></span></div>
+        <div>LP <Span id="lp"></Span></div>
     </section>
 
     <div id="aufgabe">0</div>
 
-    <div>10S</div>
+    <div id="timer">10</div>
 
     <div id="anzeige"></div>
 
@@ -46,6 +47,8 @@
             <td id="enter">Enter</td>
         </tr>
     </table>
+    <div id="overlay" class="body-overlay">
+        <button id="start">Start</button>
+    </div>
 </body>
-<script src="./assets/scripte/index.js"></script>
 </html>
