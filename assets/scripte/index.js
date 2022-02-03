@@ -10,8 +10,8 @@ const number1 = document.getElementById('number1'),
       number0 = document.getElementById('number0'),
       overlay = document.getElementById('overlay'),
       anzeige = document.getElementById('anzeige'),
-      aufgabe = document.getElementById('aufgabe');
-const warten = document.getElementById('warten'),
+      aufgabe = document.getElementById('aufgabe'),
+      warten = document.getElementById('warten'),
       timer = document.getElementById('timer'),
       start = document.getElementById('start'),
       reset = document.getElementById('reset'),
@@ -72,7 +72,7 @@ let tagVergleich = setInterval(() => {
     }
 }, 1000);
 
-// endet hier
+// 10 Sekunden Timer
 
 let timerGo = setInterval(() => {
     if(!isPaused && time >= 0) {
@@ -103,25 +103,6 @@ function timerStart(){
     isPaused = false;
 };
 
-// Lebenspunkte abzug
-function lpMinus(){
-    lp--;
-    localStorage.setItem('Lebenspunkte', lp);
-    anzeigeBar();
-}
-
-// Anzeige von EP, LV & LP
-anzeigeBar();
-function anzeigeBar(){
-    epBar.innerHTML = ep;
-    lvBar.innerHTML = lv;
-    lpBar.innerHTML = lp;
-
-    if ( lp === 0 ) {
-        setzeTag();
-    }
-};
-
 // Zufallzahl generieren und ausgeben
 function randomLv1() {
     const random1 = Math.round(Math.random() * 10 + 0.5),
@@ -129,7 +110,11 @@ function randomLv1() {
           operator = ['+', '-'],
           random3 = Math.floor(Math.random() * operator.length);
 
-    if ( random3 === 0) {
+    let summe = random1 - random2;
+
+    if (summe < 0) {
+        newRound();
+    }else if ( random3 === 0) {
         aufgabe.innerHTML = `${random1} + ${random2}`;
         return ergebnis = random1 + random2;
     } else if ( random3 === 1 ) {
@@ -137,6 +122,11 @@ function randomLv1() {
         return ergebnis = random1 - random2;
     };
 };
+
+// Neue Runde wird generiert Ohne Minus Zahlen
+function newRound() {
+   randomLv1();
+}
 
 // Ergebnis eingeben und zwischen speichern
 function meinErgebnis() {
@@ -178,56 +168,20 @@ function gameStart(e) {
 start.addEventListener('click', gameStart);
 
 // Zahlen in der Anzeige eingeben
-number1.addEventListener('click', (event) => {
-    anzeige.innerHTML += 1;
-});
-
-number2.addEventListener('click', (event) => {
-    anzeige.innerHTML += 2;
-});
-
-number3.addEventListener('click', (event) => {
-    anzeige.innerHTML += 3;
-});
-
-number4.addEventListener('click', (event) => {
-    anzeige.innerHTML += 4;
-});
-
-number5.addEventListener('click', (event) => {
-    anzeige.innerHTML += 5;
-});
-
-number6.addEventListener('click', (event) => {
-    anzeige.innerHTML += 6;
-});
-
-number7.addEventListener('click', (event) => {
-    anzeige.innerHTML += 7;
-});
-
-number8.addEventListener('click', (event) => {
-    anzeige.innerHTML += 8;
-});
-
-number9.addEventListener('click', (event) => {
-    anzeige.innerHTML += 9;
-});
-
-number0.addEventListener('click', (event) => {
-    anzeige.innerHTML += 0;
-});
-
-minus.addEventListener('click', (event) => {
-    anzeige.innerHTML += "-";
-});
+number1.addEventListener('click', (event) => {anzeige.innerHTML += 1;});
+number2.addEventListener('click', (event) => {anzeige.innerHTML += 2;});
+number3.addEventListener('click', (event) => {anzeige.innerHTML += 3;});
+number4.addEventListener('click', (event) => {anzeige.innerHTML += 4;});
+number5.addEventListener('click', (event) => {anzeige.innerHTML += 5;});
+number6.addEventListener('click', (event) => {anzeige.innerHTML += 6;});
+number7.addEventListener('click', (event) => {anzeige.innerHTML += 7;});
+number8.addEventListener('click', (event) => {anzeige.innerHTML += 8;});
+number9.addEventListener('click', (event) => {anzeige.innerHTML += 9;});
+number0.addEventListener('click', (event) => {anzeige.innerHTML += 0;});
+minus.addEventListener('click', (event) => {anzeige.innerHTML += "-";});
 
 // Anzeige Reset
-
-reset.addEventListener('click', (event) => {
-    anzeige.innerHTML = "";
-});
-
+reset.addEventListener('click', (event) => {anzeige.innerHTML = "";});
 
 // anonyme Funktion die bei Aufruf der Seite direkt ausgeführt wird. 
 (function() {
@@ -239,3 +193,22 @@ reset.addEventListener('click', (event) => {
         warten.classList.add('aufruf');
     }
 })();
+
+// Lebenspunkte abzug
+function lpMinus(){
+    lp--;
+    localStorage.setItem('Lebenspunkte', lp);
+    anzeigeBar();
+}
+
+// Anzeige von EP, LV & LP
+anzeigeBar();
+function anzeigeBar(){
+    epBar.innerHTML = ep;
+    lvBar.innerHTML = lv;
+    lpBar.innerHTML = lp;
+
+    if ( lp === 0 ) {
+        setzeTag();
+    }
+};
