@@ -7,8 +7,7 @@
 }
 
 body {
-    background: rgb(69,74,189);
-    background: linear-gradient(90deg, rgba(69,74,189,1) 0%, rgba(75,51,141,1) 100%); 
+    background: #50a387;
 }
 
 #timerGIF {
@@ -24,6 +23,28 @@ section {
     margin: 10px;
     z-index: 100;
 }
+section div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 70px;
+    height: 25px;
+    background: rgb(47,179,224);
+    background: linear-gradient(90deg, rgba(47,179,224,1) 0%, rgba(107,206,230,1) 50%, rgba(47,179,224,1) 100%);
+    border-radius: 15px;
+    border: 3px solid #34b1e1;
+}
+
+section div:nth-child(3){
+    width: 40px;
+    height: 40px;
+    background-image: url(./../../images/herz.png);
+    background-size: 40px;
+    background-position: center;
+    background-repeat: no-repeat;
+    border: none;
+    border-radius: 0;
+}
 
 body > div:nth-child(2) {
     padding: 10px;
@@ -33,7 +54,10 @@ body > div:nth-child(2) {
     text-align: center;
     width: 280px;
     font-size: 1.3rem;
-    border: 1px solid red;
+    background: rgb(114,100,87);
+    background: linear-gradient(90deg, rgba(114,100,87,1) 0%, rgba(147,138,130,1) 50%, rgba(114,100,87,1) 100%);
+    border: 3px solid #f19222;
+    border-radius: 15px;
 }
 
 body > div:nth-child(3) {
@@ -52,37 +76,44 @@ body > div:nth-child(5) {
     padding: 10px;
     position:absolute;
     right: calc(50% - 150px);
-    bottom: 250px;
+    bottom: 260px;
     text-align: center;
     width: 280px;
     min-height: 27px;
     font-size: 1.3rem;
-    border: 1px solid red;
+    background: rgb(114,100,87);
+    background: linear-gradient(90deg, rgba(114,100,87,1) 0%, rgba(147,138,130,1) 50%, rgba(114,100,87,1) 100%);
+    border: 3px solid #f19222;
+    border-radius: 15px;
 }
 
 table {
     position: absolute;
     bottom: 20px;
-    left: calc(50% - 157px);
+    left: calc(50% - 163px);
 }
 
 table tr td {
     width: 100px;
     height: 50px;
     font-size: 1.3rem;
+    background: rgb(243,142,58);
+    background: linear-gradient(90deg, rgba(243,142,58,1) 0%, rgba(250,172,71,1) 50%, rgba(243,142,58,1) 100%);
     text-align: center;
-    border: 1px solid red;
+    border: 3px solid #ef8a23;
     border-radius: 10px;
 }
 
 #reset {
     position: absolute;
-    bottom: 258px;
-    left: calc(50% - 140px);
+    bottom: 268px;
+    left: calc(50% - 147px);
     display: flex;
     align-items: center;
     justify-content: center;
-    border: 1px solid red;
+    background: rgb(243,142,58);
+    background: linear-gradient(90deg, rgba(243,142,58,1) 0%, rgba(250,172,71,1) 50%, rgba(243,142,58,1) 100%);
+    border: 3px solid #ef8a23;
     border-radius: 10px;
     width: 55px;
     height: 30px;
@@ -91,7 +122,7 @@ table tr td {
 #start {
     color: black;
     font-size: 2rem;
-    background-color: green;
+    background-color: #50a387;
     box-shadow: 0px 0px 5px 5px black;
     width: 150px;
     height: 150px;

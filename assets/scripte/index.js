@@ -224,9 +224,9 @@ function lpMinus(){
 // Anzeige von EP, LV & LP
 anzeigeBar();
 function anzeigeBar(){
-    epBar.innerHTML = ep;
-    lvBar.innerHTML = lv;
-    lpBar.innerHTML = lp;
+    epBar.innerHTML = `EP ${ep}`;
+    lvBar.innerHTML = `LV ${lv}`;
+    lpBar.innerHTML = `${lp}`;
 
     if ( lp === 0 ) {
         setzeTag();
