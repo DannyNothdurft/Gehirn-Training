@@ -52,7 +52,7 @@ body > div:nth-child(5) {
     padding: 10px;
     position:absolute;
     right: calc(50% - 150px);
-    bottom: 230px;
+    bottom: 250px;
     text-align: center;
     width: 280px;
     min-height: 27px;
@@ -62,7 +62,7 @@ body > div:nth-child(5) {
 
 table {
     position: absolute;
-    bottom: 5px;
+    bottom: 20px;
     left: calc(50% - 157px);
 }
 
@@ -77,7 +77,7 @@ table tr td {
 
 #reset {
     position: absolute;
-    bottom: 239px;
+    bottom: 258px;
     left: calc(50% - 140px);
     display: flex;
     align-items: center;
