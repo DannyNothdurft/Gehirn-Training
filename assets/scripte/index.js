@@ -25,7 +25,7 @@ let isPaused = true,
     ergebnis = 0,
     time = 10,
     ep = 0,
-    lv = 0,
+    lv = 1,
     lp = 10;
 
 // Speicher
@@ -59,7 +59,7 @@ let level = getLevel();
 function getLevel() {
     let glv = localStorage.getItem('Level');
     if ( glv == null || glv == undefined ) {
-        lv = 0;
+        lv = 1;
     } else {
         lv = glv;
     }
@@ -278,12 +278,9 @@ function levelUp() {
     } else if ( ep >= 25) {
         lv = 2;
         localStorage.setItem('Level', lv);
-    }  else if ( ep >= 10) {
+    }  else {
         lv = 1;
         localStorage.setItem('Level', lv);
-    }  else if ( ep > 0) {
-        lv = 0;
-        localStorage.setItem('Level', lv);
-    };
+    }
     anzeigeBar();
 };
