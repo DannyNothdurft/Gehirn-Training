@@ -1,0 +1,10 @@
+{
+    "name": "Gehirn Training",
+    "short_name": "Gehirn T.",
+    "theme_color": "#4b338d",
+    "background_color": "#454abd",
+    "display": "fullscreen",
+    "orientation": "portrait",
+    "scope": "/",
+    "start_url": "/"
+  }

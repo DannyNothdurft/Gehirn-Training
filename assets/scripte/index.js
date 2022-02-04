@@ -68,11 +68,12 @@ function getLevel() {
 
 // Hier steht der Code für den lp auffüllen am nächsten Tag
 const tag = new Date().getDay();
-let tagSpeicher = "";
+let tagSpeicher =  "";
 
 function setzeTag() {
     if ( lp === 0 ) {
         tagSpeicher = tag;
+        localStorage.setItem('TagSpeicher', tagSpeicher);
     }
 }
 
@@ -81,6 +82,7 @@ let tagVergleich = setInterval(() => {
         tagSpeicher = "";
         lp = 10;
         localStorage.setItem('Lebenspunkte', lp);
+        localStorage.removeItem('TagSpeicher', tagSpeicher);
     }
 }, 1000);
 
@@ -117,9 +119,9 @@ function timerStart(){
 
 // Zufallzahl generieren und ausgeben
 function random() {
-    const random1 = Math.round(Math.random() * ep + 0.5),
-          random2 = Math.round(Math.random() * ep + 0.5),
-          operator = ['+', '-'],
+    const random1 = Math.round(Math.random() * 5 * lv + 0.5),
+          random2 = Math.round(Math.random() * 5 * lv + 0.5),
+          operator = ['+', '-', '*'],
           random3 = Math.floor(Math.random() * operator.length);
 
     let summe = random1 - random2;
@@ -132,6 +134,9 @@ function random() {
     } else if ( random3 === 1 ) {
         aufgabe.innerHTML = `${random1} - ${random2}`;
         return ergebnis = random1 - random2;
+    } else if ( random3 === 2 ) {
+        aufgabe.innerHTML = `${random1} × ${random2}`;
+        return ergebnis = random1 * random2;
     };
 };
 
@@ -150,7 +155,8 @@ function meinErgebnis() {
             anzeige.innerHTML = '';
             ep++
             localStorage.setItem('Erfahrungspunkte', ep);
-        } if ( vergleich === false ) {
+        }
+        if ( vergleich === false ) {
             aufgabe.innerHTML = `${ergebnis}`;
             anzeige.innerHTML = '';
             lp--
@@ -162,8 +168,10 @@ function meinErgebnis() {
         }
         timerPause();
         levelUp();
-        setTimeout( timerStart, 1000 );
-        setTimeout( random, 2000 );
+        if ( lp > 0 ) {
+            setTimeout( timerStart, 1000 );
+            setTimeout( random, 2000 );
+        }
 }
 
 enter.addEventListener('click', meinErgebnis);

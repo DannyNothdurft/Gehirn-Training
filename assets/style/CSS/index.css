@@ -89,11 +89,17 @@ table tr td {
 }
 
 #start {
+    color: black;
+    font-size: 2rem;
+    background-color: green;
+    box-shadow: 0px 0px 5px 5px black;
     width: 150px;
-    height: 50px;
+    height: 150px;
     position: absolute;
-    top: calc(50% - 25px );
+    top: calc(50% - 75px );
     left: calc(50% - 75px );
+    border-radius: 50%;
+
     z-index: 102;
 }
 
@@ -101,12 +107,13 @@ table tr td {
     position: absolute;
     left: calc(50% - 100px);
     bottom: calc(50% - 28px);
-    background-color: white;
+    background-color: red;
     width: 200px;
     text-align: center;
     padding: 10px;
     border-radius: 15px;
-    border: 2px solid whitesmoke;
+    border: 2px solid darkred;
+    box-shadow: 0px 0px 5px 5px black;
     z-index: 101;
     display: none;
 }
