@@ -68,7 +68,7 @@ function getLevel() {
 
 // Hier steht der Code für den lp auffüllen am nächsten Tag
 const tag = new Date().getDay();
-let tagSpeicher =  "";
+let tagSpeicher;
 
 function setzeTag() {
     if ( lp === 0 ) {
@@ -78,11 +78,11 @@ function setzeTag() {
 }
 
 let tagVergleich = setInterval(() => {
-    if( tag != tagSpeicher && tagSpeicher != "" ) {
-        tagSpeicher = "";
+    if( tag != tagSpeicher && tagSpeicher != undefined ) {
+        tagSpeicher = undefined;
         lp = 10;
         localStorage.setItem('Lebenspunkte', lp);
-        localStorage.removeItem('TagSpeicher', tagSpeicher);
+        localStorage.setItem('TagSpeicher', tagSpeicher);
     }
 }, 1000);
 
@@ -113,9 +113,7 @@ function timerPause() {
     };
 };
 
-function timerStart(){
-    isPaused = false;
-};
+function timerStart() { isPaused = false };
 
 // Zufallzahl generieren und ausgeben
 function random() {
@@ -141,9 +139,7 @@ function random() {
 };
 
 // Neue Runde wird generiert Ohne Minus Zahlen
-function newRound() {
-   random();
-}
+function newRound() { random() };
 
 // Ergebnis eingeben und zwischen speichern
 function meinErgebnis() {
