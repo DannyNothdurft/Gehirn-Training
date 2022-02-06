@@ -151,7 +151,6 @@ table tr td {
 
 .aufruf {
     display: block;
-    touch-action: manipulation;
 }
 
 .dialog {
@@ -167,6 +166,5 @@ table tr td {
     background-color: rgba(0, 0, 0, 0.5);
     z-index: 100;
     pointer-events: all;
-    touch-action: manipulation;
     transition: opacity 300ms ease-in-out;
 }

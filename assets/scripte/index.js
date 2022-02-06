@@ -68,12 +68,25 @@ function getLevel() {
 
 // Hier steht der Code für den lp auffüllen am nächsten Tag
 const tag = new Date().getDay();
-let tagSpeicher;
+let tagSpeicher = undefined;
+
+let tagSpeicherLocal = getTagSpeicher();
+
+function getTagSpeicher() {
+    let gts = localStorage.getItem('TagSpeicher');
+    if ( gts == null || gts == undefined ) {
+        tagSpeicher = undefined;
+    } else {
+        tagSpeicher = gts;
+    };
+    return gts;
+};
 
 function setzeTag() {
     if ( lp === 0 ) {
         tagSpeicher = tag;
         localStorage.setItem('TagSpeicher', tagSpeicher);
+        aufruf()
     }
 }
 
@@ -192,8 +205,7 @@ number5.addEventListener('click', (event) => {anzeige.innerHTML += 5;});
 number6.addEventListener('click', (event) => {anzeige.innerHTML += 6;});
 number7.addEventListener('click', (event) => {anzeige.innerHTML += 7;});
 number8.addEventListener('click', (event) => {anzeige.innerHTML += 8;});
-number9.addEventListener('click', (event) => {anzeige.innerHTML += 9;});
-number0.addEventListener('click', (event) => {anzeige.innerHTML += 0;});
+number9.addEventListener('click', (event) => {anzeige.innerHTML += 0;});
 minus.addEventListener('click', (event) => {anzeige.innerHTML += "-";});
 
 // Anzeige Reset
@@ -201,6 +213,7 @@ reset.addEventListener('click', (event) => {anzeige.innerHTML = "";});
 
 // anonyme Funktion die bei Aufruf der Seite direkt ausgeführt wird. 
 (function() {
+    aufruf()
     // Überprüft ob die Lebenspunkte kleiner als 0 ist.
     if ( lp <= 0 ) {
         // Wenn kleiner als null wird der Start Button nicht angezeigt
@@ -280,3 +293,7 @@ function levelUp() {
     }
     anzeigeBar();
 };
+
+function aufruf() {
+    console.log(tagSpeicher);
+}
