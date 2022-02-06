@@ -205,7 +205,8 @@ number5.addEventListener('click', (event) => {anzeige.innerHTML += 5;});
 number6.addEventListener('click', (event) => {anzeige.innerHTML += 6;});
 number7.addEventListener('click', (event) => {anzeige.innerHTML += 7;});
 number8.addEventListener('click', (event) => {anzeige.innerHTML += 8;});
-number9.addEventListener('click', (event) => {anzeige.innerHTML += 0;});
+number9.addEventListener('click', (event) => {anzeige.innerHTML += 9;});
+number0.addEventListener('click', (event) => {anzeige.innerHTML += 0;});
 minus.addEventListener('click', (event) => {anzeige.innerHTML += "-";});
 
 // Anzeige Reset
