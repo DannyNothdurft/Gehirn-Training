@@ -168,3 +168,7 @@ table tr td {
     pointer-events: all;
     transition: opacity 300ms ease-in-out;
 }
+
+.false {
+    color: red;
+}

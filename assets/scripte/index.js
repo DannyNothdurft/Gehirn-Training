@@ -70,10 +70,10 @@ function getLevel() {
 const tag = new Date().getDay();
 let tagSpeicher = undefined;
 
-let tagSpeicherLocal = getTagSpeicher();
+// let tagSpeicherLocal = getTagSpeicher();
 
 function getTagSpeicher() {
-    let gts = localStorage.getItem('TagSpeicher');
+    let gts = localStorage.getItem('Day');
     if ( gts == null || gts == undefined ) {
         tagSpeicher = undefined;
     } else {
@@ -85,8 +85,7 @@ function getTagSpeicher() {
 function setzeTag() {
     if ( lp === 0 ) {
         tagSpeicher = tag;
-        localStorage.setItem('TagSpeicher', tagSpeicher);
-        aufruf()
+        localStorage.setItem('Day', tagSpeicher);
     }
 }
 
@@ -95,7 +94,7 @@ let tagVergleich = setInterval(() => {
         tagSpeicher = undefined;
         lp = 10;
         localStorage.setItem('Lebenspunkte', lp);
-        localStorage.setItem('TagSpeicher', tagSpeicher);
+        localStorage.setItem('Day', tagSpeicher);
     }
 }, 1000);
 
@@ -130,6 +129,9 @@ function timerStart() { isPaused = false };
 
 // Zufallzahl generieren und ausgeben
 function random() {
+
+    aufgabe.classList.remove('false');
+
     const random1 = Math.round(Math.random() * 5 * lv + 0.5),
           random2 = Math.round(Math.random() * 5 * lv + 0.5),
           operator = ['+', '-', '*'],
@@ -170,6 +172,7 @@ function meinErgebnis() {
             anzeige.innerHTML = '';
             lp--
             localStorage.setItem('Lebenspunkte', lp);
+            aufgabe.classList.add('false');
             if ( lp == 0){
                 warten.classList.add('aufruf');
                 overlay.classList.add('body-overlay');
@@ -214,7 +217,6 @@ reset.addEventListener('click', (event) => {anzeige.innerHTML = "";});
 
 // anonyme Funktion die bei Aufruf der Seite direkt ausgeführt wird. 
 (function() {
-    aufruf()
     // Überprüft ob die Lebenspunkte kleiner als 0 ist.
     if ( lp <= 0 ) {
         // Wenn kleiner als null wird der Start Button nicht angezeigt
@@ -294,7 +296,3 @@ function levelUp() {
     }
     anzeigeBar();
 };
-
-function aufruf() {
-    console.log(tagSpeicher);
-}
