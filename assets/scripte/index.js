@@ -84,7 +84,7 @@ function getTagSpeicher() {
 function setzeTag() {
     if ( lp === 0 ) {
         console.log('setze Tag Funktion');
-        tagSpeicher = tag - 1;
+        tagSpeicher = tag + 1;
         localStorage.setItem('Day', tagSpeicher);
         console.log(tagSpeicher);
     }
