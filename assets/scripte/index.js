@@ -70,7 +70,7 @@ function getLevel() {
 const tag = new Date().getDay();
 let tagSpeicher = undefined;
 
-// let tagSpeicherLocal = getTagSpeicher();
+let tagSpeicherLocal = getTagSpeicher();
 
 function getTagSpeicher() {
     let gts = localStorage.getItem('Day');
@@ -79,13 +79,14 @@ function getTagSpeicher() {
     } else {
         tagSpeicher = gts;
     };
-    return gts;
 };
 
 function setzeTag() {
     if ( lp === 0 ) {
+        console.log('setze Tag Funktion');
         tagSpeicher = tag;
         localStorage.setItem('Day', tagSpeicher);
+        console.log(tagSpeicher);
     }
 }
 
@@ -296,3 +297,5 @@ function levelUp() {
     }
     anzeigeBar();
 };
+
+console.log(tagSpeicher);
