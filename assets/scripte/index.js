@@ -92,8 +92,6 @@ function setzeTag() {
 
 let tagVergleich = setInterval(() => {
     if( tagSpeicher == tag && tagSpeicher != undefined ) {
-        console.log(tagSpeicher);
-        alert('wird ausgeführt');
         tagSpeicher = undefined;
         lp = 10;
         localStorage.setItem('Lebenspunkte', lp);
@@ -297,5 +295,3 @@ function levelUp() {
     }
     anzeigeBar();
 };
-
-console.log(tagSpeicher);
