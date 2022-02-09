@@ -57,10 +57,28 @@
     </table>
     <div id="overlay" class="body-overlay">
         <button id="start">Start</button>
-        <div id="warten" class="warten" >
+        <div id="warten" class="warten">
             <p>Du hast keine Lebenspunkte mehr.</p>
             <br>
             <p>Ruhe dich aus und komme morgen nochmal wieder!</p>
+            <br>
+            <p>Alternative kannst du dein Leben für eine kleine spende auffüllen.</p>
+            <br>
+            <div id="donate-button-container" onclick="lebenKauf()">
+                <div id="donate-button"></div>
+                <script src="https://www.paypalobjects.com/donate/sdk/donate-sdk.js" charset="UTF-8"></script>
+                <script>
+                PayPal.Donation.Button({
+                env:'production',
+                hosted_button_id:'EH2L9T78SC59J',
+                image: {
+                src:'https://www.paypalobjects.com/de_DE/DE/i/btn/btn_donateCC_LG.gif',
+                alt:'Spenden mit dem PayPal-Button',
+                title:'PayPal - The safer, easier way to pay online!',
+                }
+                }).render('#donate-button');
+                </script>
+            </div>             
         </div>
     </div>
     

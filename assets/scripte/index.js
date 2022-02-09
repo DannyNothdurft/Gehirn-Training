@@ -90,17 +90,22 @@ function setzeTag() {
     }
 }
 
-let tagVergleich = setInterval(() => {
+function tagVergleich() {
     if( tagSpeicher == tag && tagSpeicher != undefined ) {
         tagSpeicher = undefined;
         lp = 10;
         localStorage.setItem('Lebenspunkte', lp);
         localStorage.setItem('Day', tagSpeicher);
     }
-}, 1000);
+}
+
+// Leben Kauf auffüllen
+function lebenKauf(){
+    lp = 10;
+    localStorage.setItem('Lebenspunkte', lp);
+}
 
 // 10 Sekunden Timer
-
 let timerGo = setInterval(() => {
     if(!isPaused && time >= 0) {
         timer.innerHTML = parseInt(time % 60, 10);
@@ -177,7 +182,6 @@ function meinErgebnis() {
             if ( lp == 0){
                 warten.classList.add('aufruf');
                 overlay.classList.add('body-overlay');
-                setzeTag();
             }
         }
         timerPause();
@@ -219,7 +223,7 @@ reset.addEventListener('click', (event) => {anzeige.innerHTML = "";});
 
 // anonyme Funktion die bei Aufruf der Seite direkt ausgeführt wird. 
 (function() {
-    setzeTag();
+    tagVergleich();
     // Überprüft ob die Lebenspunkte kleiner als 0 ist.
     if ( lp <= 0 ) {
         // Wenn kleiner als null wird der Start Button nicht angezeigt
@@ -242,6 +246,10 @@ function anzeigeBar(){
     epBar.innerHTML = `EP ${ep}`;
     lvBar.innerHTML = `LV ${lv}`;
     lpBar.innerHTML = `${lp}`;
+
+    if ( lp == 0) {
+        setzeTag();
+    }
 };
 
 // Level Steigerung
