@@ -136,8 +136,8 @@ table tr td {
 
 .warten {
     position: absolute;
-    left: calc(50% - 100px);
-    bottom: calc(50% - 28px);
+    left: calc(50% - 112px);
+    bottom: calc(50% - 142px);
     background-color: red;
     width: 200px;
     text-align: center;

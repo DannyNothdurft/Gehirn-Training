@@ -103,6 +103,7 @@ function tagVergleich() {
 function lebenKauf(){
     lp = 10;
     localStorage.setItem('Lebenspunkte', lp);
+    anzeigeBar();
 }
 
 // 10 Sekunden Timer
