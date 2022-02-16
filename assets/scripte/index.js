@@ -120,7 +120,7 @@ function timerPause() {
     isPaused = true;
     timer.innerHTML = 10;
     if (time <= 0 ){
-        aufgabe.innerHTML = 'Zeit ist um!';
+        aufgabe.innerHTML = `Zeit ist um! Lösung = ${ergebnis}`;
         time = 10;
         lpMinus();
         if ( lp != 0 ) {
