@@ -307,3 +307,7 @@ function levelUp() {
     }
     anzeigeBar();
 };
+
+function thanks() {
+    console.log('hat geklappt');
+}
