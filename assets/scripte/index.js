@@ -69,7 +69,7 @@ function getLevel() {
 // Hier steht der Code für den lp auffüllen am nächsten Tag
 const tag = new Date().getDay();
 
-let tagSpeicher = undefined;
+let tagSpeicher = 5;
 
 let tagSpeicherLocal = getTagSpeicher();
 
@@ -83,14 +83,29 @@ function getTagSpeicher() {
 
 };
 
+// Micha Hilfe !!
 function setzeTag() {
-    if (lp === 0 && tagSpeicher != 7) {
+
+    console.log(typeof (lp))
+    console.log('lp', lp)
+    console.log(typeof (tagSpeicher))
+    console.log('tagSpeicher', tagSpeicher)
+
+    if (lp == 0 && tagSpeicher <= 6) {
+        console.log('case1')
         tagSpeicher = tag + 1;
         localStorage.setItem('Day', tagSpeicher);
-    } else {
+    } else if (lp == 0 && tagSpeicher == 7) {
+        console.log('case2')
         tagSpeicher = 1;
         localStorage.setItem('Day', tagSpeicher);
+    } else if (lp == 0 && tagSpeicher == undefined) {
+        console.log('case3')
+        tagSpeicher = tag + 1;
+        localStorage.setItem('Day', tagSpeicher);
     }
+
+    console.log(tagSpeicher)
 }
 
 function tagVergleich() {
@@ -106,6 +121,8 @@ function tagVergleich() {
 function lebenKauf() {
     lp = 10;
     localStorage.setItem('Lebenspunkte', lp);
+    tagSpeicher = undefined;
+    localStorage.setItem('Day', tagSpeicher);
     anzeigeBar();
 }
 
@@ -307,7 +324,3 @@ function levelUp() {
     }
     anzeigeBar();
 };
-
-function thanks() {
-    console.log('hat geklappt');
-}
