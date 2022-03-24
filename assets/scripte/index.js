@@ -88,13 +88,7 @@ console.log('tagSpeicher', tagSpeicher)
 // Micha Hilfe !!
 function setzeTag() {
 
-    console.log(typeof (lp))
-    console.log('lp', lp)
-    console.log(typeof (tagSpeicher))
-    console.log('tagSpeicher', tagSpeicher)
-
     if (lp == 0 && tagSpeicher <= 6) {
-        console.log('case1')
         tagSpeicher = tag + 1;
         localStorage.setItem('Day', tagSpeicher);
     } else if (lp == 0 && tagSpeicher == 7) {
@@ -106,8 +100,6 @@ function setzeTag() {
         tagSpeicher = tag + 1;
         localStorage.setItem('Day', tagSpeicher);
     }
-
-    console.log(tagSpeicher)
 }
 
 function tagVergleich() {
