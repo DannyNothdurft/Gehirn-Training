@@ -69,8 +69,9 @@ function getLevel() {
 // Hier steht der Code für den lp auffüllen am nächsten Tag
 const tag = new Date().getDay();
 
-let tagSpeicher = 5;
+let tagSpeicher = undefined;
 
+console.log('tagSpeicher', tagSpeicher)
 let tagSpeicherLocal = getTagSpeicher();
 
 function getTagSpeicher() {
@@ -82,6 +83,7 @@ function getTagSpeicher() {
     };
 
 };
+console.log('tagSpeicher', tagSpeicher)
 
 // Micha Hilfe !!
 function setzeTag() {
