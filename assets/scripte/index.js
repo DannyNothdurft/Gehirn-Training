@@ -112,20 +112,10 @@ function setzeTag() {
 function tagVergleich() {
     console.log('tagVergleich()')
     if (tagSpeicher == tag && tagSpeicher != undefined) {
-        tagSpeicher = undefined;
         lp = 10;
         localStorage.setItem('Lebenspunkte', lp);
-        localStorage.setItem('Day', tagSpeicher);
+        localStorage.removeItem('Day');
     }
-}
-
-// Leben Kauf auffüllen
-function lebenKauf() {
-    lp = 10;
-    localStorage.setItem('Lebenspunkte', lp);
-    tagSpeicher = undefined;
-    localStorage.setItem('Day', tagSpeicher);
-    anzeigeBar();
 }
 
 // 10 Sekunden Timer
