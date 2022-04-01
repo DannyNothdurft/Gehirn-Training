@@ -71,7 +71,6 @@ const tag = new Date().getDay();
 
 let tagSpeicher = undefined;
 
-console.log('tagSpeicher', tagSpeicher)
 let tagSpeicherLocal = getTagSpeicher();
 
 function getTagSpeicher() {
@@ -83,34 +82,25 @@ function getTagSpeicher() {
     };
 
 };
-console.log('tagSpeicher', tagSpeicher)
 
 // Micha Hilfe !!
 function setzeTag() {
-    console.log('setzeTag()')
     if (lp == 0 && tagSpeicher == undefined) {
         console.log('Ich bin in der ersten If abfrage!')
-        if (lp == 0 && tagSpeicher <= 6) {
+        if (lp == 0 && tag <= 6) {
             console.log('Ich bin in der zweiten if Abfrage für tagSpeicher <= 6 !')
             tagSpeicher = tag + 1;
             localStorage.setItem('Day', tagSpeicher);
-        } else if (lp == 0 && tagSpeicher == 7) {
+        } else if (lp == 0 && tag == 7) {
             console.log('Ich bin in der zweiten if Abfrage für tagSpeicher == 7 !')
             console.log('case2')
             tagSpeicher = 1;
             localStorage.setItem('Day', tagSpeicher);
-        } else if (lp == 0 && tagSpeicher == undefined) {
-            console.log('Ich bin in der zweiten if Abfrage für tagSpeicher == undefined !')
-            tagSpeicher = tag + 1;
-            localStorage.setItem('Day', tagSpeicher);
         }
-    } else if (lp == 0 && tagSpeicher != undefined) {
-        console.log('setzeTag kann nicht ausgeführt werden!')
     }
 }
 
 function tagVergleich() {
-    console.log('tagVergleich()')
     if (tagSpeicher == tag && tagSpeicher != undefined) {
         lp = 10;
         localStorage.setItem('Lebenspunkte', lp);
