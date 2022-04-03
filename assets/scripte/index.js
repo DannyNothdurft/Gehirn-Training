@@ -83,20 +83,16 @@ function getTagSpeicher() {
 
 };
 
-// Micha Hilfe !!
 function setzeTag() {
-    if (lp == 0 && tagSpeicher == undefined) {
-        console.log('Ich bin in der ersten If abfrage!')
-        if (lp == 0 && tag <= 6) {
-            console.log('Ich bin in der zweiten if Abfrage für tagSpeicher <= 6 !')
-            tagSpeicher = tag + 1;
-            localStorage.setItem('Day', tagSpeicher);
-        } else if (lp == 0 && tag == 7) {
-            console.log('Ich bin in der zweiten if Abfrage für tagSpeicher == 7 !')
-            console.log('case2')
-            tagSpeicher = 1;
-            localStorage.setItem('Day', tagSpeicher);
-        }
+    if (lp == 0 && tag <= 6) {
+        console.log('Ich bin in der zweiten if Abfrage für tagSpeicher <= 6 !')
+        tagSpeicher = tag + 1;
+        localStorage.setItem('Day', tagSpeicher);
+    } else if (lp == 0 && tag == 7) {
+        console.log('Ich bin in der zweiten if Abfrage für tagSpeicher == 7 !')
+        console.log('case2')
+        tagSpeicher = 1;
+        localStorage.setItem('Day', tagSpeicher);
     }
 }
 
