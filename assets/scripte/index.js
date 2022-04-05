@@ -252,7 +252,6 @@ function anzeigeBar() {
 };
 
 // Level Steigerung
-
 function levelUp() {
     if (ep >= 10000) {
         lv = 15;
