@@ -67,40 +67,40 @@ function getLevel() {
 };
 
 // Hier steht der Code für den lp auffüllen am nächsten Tag
-const tag = new Date().getDay();
+const datum = new Date();
+const datumString = datum.toLocaleDateString();
 
-let tagSpeicher = undefined;
-
+let datumSpeicher = undefined;
 let tagSpeicherLocal = getTagSpeicher();
 
 function getTagSpeicher() {
-    let gts = localStorage.getItem('Day');
-    if (gts == null || gts == undefined) {
-        tagSpeicher = undefined;
+    let gds = localStorage.getItem('Datum');
+    if (gds == null || gds == undefined) {
+        datumSpeicher = undefined;
     } else {
-        tagSpeicher = gts;
+        datumSpeicher = gds;
     };
 
 };
 
-function setzeTag() {
-    if (lp == 0 && tag <= 6) {
-        console.log('Ich bin in der zweiten if Abfrage für tagSpeicher <= 6 !')
-        tagSpeicher = tag + 1;
-        localStorage.setItem('Day', tagSpeicher);
-    } else if (lp == 0 && tag == 7) {
-        console.log('Ich bin in der zweiten if Abfrage für tagSpeicher == 7 !')
-        console.log('case2')
-        tagSpeicher = 1;
-        localStorage.setItem('Day', tagSpeicher);
+function setzeDatum() {
+    if ( datumSpeicher == null || datumSpeicher == undefined) {
+        datumSpeicher = datumString
+        localStorage.setItem('Datum', datumSpeicher);
+        console.log('Datum ist gesetzt')
+    } else {
+        console.log('datum konnte nicht gesetzt werden')
     }
 }
 
 function tagVergleich() {
-    if (tagSpeicher == tag && tagSpeicher != undefined) {
+    if (datumSpeicher != datumString) {
         lp = 10;
         localStorage.setItem('Lebenspunkte', lp);
-        localStorage.removeItem('Day');
+        localStorage.removeItem('Datum');
+        console.log('DatumSpeicher ist !=')
+    } else {
+        console.log('datumSpeicher ist ==');
     }
 }
 
@@ -222,6 +222,7 @@ reset.addEventListener('click', (event) => { anzeige.innerHTML = ""; });
 
 // anonyme Funktion die bei Aufruf der Seite direkt ausgeführt wird. 
 (function () {
+    setzeDatum();
     tagVergleich();
     // Überprüft ob die Lebenspunkte kleiner als 0 ist.
     if (lp <= 0) {
@@ -245,10 +246,6 @@ function anzeigeBar() {
     epBar.innerHTML = `EP ${ep}`;
     lvBar.innerHTML = `LV ${lv}`;
     lpBar.innerHTML = `${lp}`;
-
-    if (lp == 0) {
-        setzeTag();
-    }
 };
 
 // Level Steigerung
