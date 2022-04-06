@@ -118,7 +118,7 @@ function timerPause() {
     isPaused = true;
     timer.innerHTML = 10;
     if (time <= 0) {
-        aufgabe.innerHTML = `Zeit ist um! Lösung = ${ergebnis}`;
+        aufgabe.innerHTML = `Lösung wäre ${ergebnis}`;
         anzeige.innerHTML = ``;
         time = 10;
         lpMinus();
@@ -168,13 +168,13 @@ function meinErgebnis() {
     time = 10;
 
     if (vergleich === true) {
-        aufgabe.innerHTML = 'Richtig';
+        aufgabe.innerHTML = `${ergebnis} ist richtig`;
         anzeige.innerHTML = '';
         ep++
         localStorage.setItem('Erfahrungspunkte', ep);
     }
     if (vergleich === false) {
-        aufgabe.innerHTML = `${ergebnis}`;
+        aufgabe.innerHTML = `${ergebnis} wäre richtig`;
         anzeige.innerHTML = '';
         lp--
         localStorage.setItem('Lebenspunkte', lp);
